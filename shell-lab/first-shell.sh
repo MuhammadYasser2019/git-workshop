@@ -3,10 +3,10 @@
 set -e
 MOUNTPOINTS="/github /jenkins"
 MACHINES="workstation servera serverb serverc"
-## this loop for printing the hostname
+
 for i in $MACHINES ; do
     if [ $i == "servera" ] ; then
-      echo -e "#### Below you will find the hostname #### \n \n"
+       echo -e "#### Below you will find the hostname #### \n \n"
       ssh $i hostname
     fi
 done
@@ -27,7 +27,7 @@ function create_user() {
      echo "gituser:teste123" | chpasswd
      id gituser
      mkdir -p /root/.gituser-dir
-     echo -e "IF the directory in the #### $(hostname) #### is created before and already has data, it will show down" 	
+     echo -e "The dir in the ### $(hostname) ### is created before and already has data, it will show down" 
      ls -l /root/.gituser-dir
 }
 
@@ -48,4 +48,3 @@ create_user
 #mkdir_mountpoints
 add_sudoer
 #chech_repolist
-
